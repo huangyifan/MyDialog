@@ -26,6 +26,7 @@
             android:background="@color/doc_history_role_color"/>
 
         <TextView
+            android:id="@+id/tv_google_mail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -39,10 +40,11 @@
             android:background="@color/doc_history_role_color"/>
 
         <TextView
+            android:id="@+id/tv_wangyi_mail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="人人邮箱"
+            android:text="网易邮箱"
             android:layout_marginTop="5dp"/>
 
     </LinearLayout>

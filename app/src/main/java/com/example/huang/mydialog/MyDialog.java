@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 
 import java.util.zip.Inflater;
@@ -19,16 +20,37 @@ import java.util.zip.Inflater;
 public class MyDialog extends Dialog {
     private View mRootView;
     private Context mContext;
+    private TextView googleMail;
+    private TextView wangyiMail;
     public MyDialog(Context context, int dialog) {
 
         super(context,dialog);
         mRootView = View.inflate(context, R.layout.dialog, null);
         this.mContext = context;
+        init();
     }
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(mRootView);
+    private void init() {
+        googleMail = (TextView) mRootView.findViewById(R.id.tv_google_mail);
+        wangyiMail = (TextView) mRootView.findViewById(R.id.tv_wangyi_mail);
+    }
+
+    private void initView() {
+
+        googleMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+
+        wangyiMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+
     }
 
     public void show() {
@@ -44,6 +66,11 @@ public class MyDialog extends Dialog {
         }
     }
 
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(mRootView);
+    }
+
     public static class Builder{
         private Context context;
 
@@ -54,8 +81,16 @@ public class MyDialog extends Dialog {
         public MyDialog create(){
             MyDialog dialog = new MyDialog(context, R.style.Dialog);
 
+            dialog.initView();
+
             return dialog;
         }
 
     }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+    }
+
 }
