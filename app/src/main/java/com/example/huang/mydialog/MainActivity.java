@@ -5,16 +5,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button click;
+    @Bind(R.id.button)
+    Button click;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        click = (Button) findViewById(R.id.button);
+        ButterKnife.bind(this);
 
         click.setOnClickListener(new View.OnClickListener() {
             @Override
